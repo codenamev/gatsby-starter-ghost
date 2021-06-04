@@ -155,6 +155,8 @@ table {
     border-collapse: collapse;
 }
 img {
+    display: block;
+    height: auto;
     max-width: 100%;
 }
 html {
@@ -1016,6 +1018,69 @@ h6 {
 
 
 /* Koenig Styles
+/* ---------------------------------------------------------- */
+
+/* Cards
+/* ---------------------------------------------------------- */
+
+/* Cards are dynamic blocks of content which appear within Ghost
+posts, for example: embedded videos, tweets, galleries, or
+specially styled bookmark links. We add extra styling here to
+make sure they look good, and are given a bit of extra spacing. */
+
+/* Add extra margin before/after any cards,
+except for when immediately preceeded by a heading */
+.gh-content :not(.kg-card):not([id]) + .kg-card {
+    margin-top: 6vmin;
+    margin-bottom: 0;
+}
+.gh-content .kg-card + :not(.kg-card) {
+    margin-top: 6vmin;
+    margin-bottom: 0;
+}
+
+/* This keeps small embeds centered */
+.kg-embed-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* This keeps small iamges centered */
+.kg-image-card img {
+    margin: auto;
+}
+
+
+/* Captions */
+.kg-card figcaption {
+    padding: 1.5rem 1.5rem 0;
+    text-align: center;
+    color: rgba(0,0,0,0.5);
+    font-weight: 600;
+    font-size: 1.3rem;
+    line-height: 1.4em;
+}
+.kg-card figcaption strong {
+    color: rgba(0,0,0,0.8);
+}
+
+
+/* Highly specific styles for traditional Instagram embeds */
+iframe.instagram-media {
+    margin-top: 6vmin !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-bottom: 0 !important;
+}
+
+iframe.instagram-media + script + :not([id]) {
+    margin-top: 6vmin;
+}
+
+
+/* Bookmark Cards
 /* ---------------------------------------------------------- */
 
 .kg-bookmark-card {
