@@ -14,6 +14,7 @@ import { MetaData } from '../components/common/meta'
 */
 const Post = ({ data, location }) => {
     const post = data.ghostPost
+    const filteredPostContent = post.html.replace(/<img([^>]*) height=["]?\d+["]?\b([^>]*)\/?>/g, `<img$1$2>`)
 
     return (
         <>
@@ -38,7 +39,7 @@ const Post = ({ data, location }) => {
                             {/* The main post content */ }
                             <section
                                 className="content-body load-external-scripts"
-                                dangerouslySetInnerHTML={{ __html: post.html }}
+                                dangerouslySetInnerHTML={{ __html: filteredPostContent }}
                             />
                         </section>
                     </article>
